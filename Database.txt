@@ -1,0 +1,26 @@
+CREATE TABLE kund (
+	kundId INT NOT NULL AUTO_INCREMENT,
+	kundNamn VARCHAR(50),
+    email VARCHAR(50),
+    password VARCHAR(50),
+	PRIMARY KEY (kundId)
+);
+CREATE TABLE film (
+	filmId INT NOT NULL AUTO_INCREMENT,
+	filmTitel VARCHAR(50),
+	filmAge INT,
+	filmPris INT,
+    filmDate VARCHAR(50),
+    platser INT,
+    filmCover VARCHAR(250),
+	PRIMARY KEY (filmId)
+);
+CREATE TABLE ticket(
+	ticketId INT NOT NULL AUTO_INCREMENT,
+	ticketKundId INT,
+	ticketFilmId INT,
+  antalTickets INT,
+	PRIMARY KEY (ticketId),
+  FOREIGN KEY (ticketKundId) REFERENCES kund(kundId),
+	FOREIGN KEY (ticketFilmId) REFERENCES film(filmId),
+);
